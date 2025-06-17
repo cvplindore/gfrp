@@ -1,30 +1,26 @@
 "use client";
 
 import React from "react";
-import Navbar from "../components/Navbar";
-import Hero from "@/components/Hero";
+
 import LogoSection from "@/components/LogoSection";
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import ResourcesSection from "@/components/ResourcesSection";
-import BlogSection from "@/components/BlogSection";
+
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
-import ProductSection from "@/components/Products";
+import ResourcesHero from "@/components/resources/Hero";
+import ResourcesSection from "@/components/resources/ResourcesSection";
+import ProductHero from "@/components/products/Hero";
+import ProductSection from "@/components/products/ProductSection";
+import BlogHero from "@/components/blog/Hero";
+import BlogSection from "@/components/blog/BlogSection";
 
-
-export default function Home() {
+export default function Blog() {
   return (
     <>
-      <main className="main-wrapper">
-        <Hero />
-        <LogoSection />
-        <AboutSection />
-        {/* <ServicesSection /> */}
-        <ProductSection />
-        <ProjectsSection />
-        <ResourcesSection />
+      <main className="main-wrapper sub-pages">
+        <BlogHero />
         <BlogSection />
         <TestimonialsSection />
         <FAQSection />
