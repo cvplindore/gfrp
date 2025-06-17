@@ -12,10 +12,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  if (process.env.NODE_ENV === "development") {
-    // Removes red error overlay in dev
-    window.onerror = () => true;
-  }
   return (
     <html lang="en">
       <body className="body">

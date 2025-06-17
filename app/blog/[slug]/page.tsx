@@ -35,7 +35,7 @@ export default function SingleBlogPage() {
         .catch((error) => {
           console.error("Error fetching hero section:", error);
         });
-    }, []);
+    }, [params.slug]);
 
     if (!singleblog) return ;
 

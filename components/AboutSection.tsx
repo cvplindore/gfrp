@@ -254,6 +254,7 @@ const AboutSection = () => {
                   {how.sub_sections.map((step, index) => (
                     <motion.div
                       data-w-id="7d450072-5c84-03cd-4f31-f9966a48dbfd"
+                      key={index}
                       // style="opacity: 0"
                       className="about_block"
                       initial={{ opacity: 0, y: 30 }}
