@@ -7,6 +7,7 @@ import axios from "axios";
 
 import { motion } from "framer-motion";
 import FadeInOnScroll from "./animation/FadeInOnScroll";
+import { useLoader } from "./LoaderContext";
 
 const BlogSection = () => {
   const blogs = Array(3).fill({
@@ -25,6 +26,17 @@ const BlogSection = () => {
   });
 
   const [blog, setBlog] = useState(null);
+
+  const { setHideLoader } = useLoader();
+  
+    function doReverse(e) {
+      // e.preventDefault();
+      setHideLoader(false);
+  
+      setTimeout(() => {
+        setHideLoader(true);
+      }, 4000);
+    }
 
   useEffect(() => {
     axios
@@ -66,7 +78,7 @@ const BlogSection = () => {
                 </FadeInOnScroll>
               </div>
               <FadeInOnScroll delay={0.2}>
-                <Link href="#" className="projects_linkblock w-inline-block">
+                <Link href="#" className="projects_linkblock w-inline-block" onClick={doReverse}>
                   <div className="projects_cta-text">View all blogs</div>
                   <Image
                     src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67eb1d94ffa650511871a81c_Vector%20(1).svg"
@@ -149,6 +161,7 @@ const BlogSection = () => {
                       <Link
                         href={item.slug}
                         className="blogs_linkblock w-inline-block"
+                        onClick={doReverse}
                       >
                         <div className="blogs_image-wrapper">
                           <Image

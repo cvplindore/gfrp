@@ -6,6 +6,8 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import FadeInOnScroll from "./animation/FadeInOnScroll";
+import Link from "next/link";
+import { useLoader } from "./LoaderContext";
 
 
 
@@ -23,7 +25,18 @@ const ProductSection = () => {
       });
   }, []);
 
-  if (!pro) return ;
+  if (!pro) return;
+  
+  const { setHideLoader } = useLoader();
+  
+    function doReverse(e) {
+      // e.preventDefault();
+      setHideLoader(false);
+  
+      setTimeout(() => {
+        setHideLoader(true);
+      }, 4000);
+    }
 
     return (
       <section className="section_services">
@@ -148,10 +161,11 @@ const ProductSection = () => {
                           ))}
                         </ul>
                       </div>
-                      <a
+                      <Link
                         data-wf--cta-link--variant="primary"
                         href="/contact"
                         className="cta-linkblock cc-is-primary w-inline-block"
+                        onClick={doReverse}
                       >
                         <div className="cta-linkblock_text">Contact Us</div>
                         <div className="cta-icon_wrap">
@@ -162,7 +176,7 @@ const ProductSection = () => {
                             <img src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg" />
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </motion.div>
                 ))}

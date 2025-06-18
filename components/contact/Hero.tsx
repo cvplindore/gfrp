@@ -216,7 +216,7 @@ export default function ContactHero() {
                       data-wait="Please wait..."
                       className="contact-form_submit-btn w-button"
                       value="Submit"
-                      style={{ backgroundColor: "#ff6b35" }}
+                      style={{ backgroundColor: "#ff6b35", pointerEvents: 'none', cursor: 'not-allowed' }}
                     />
                   </form>
                   <div className="contact_success-message w-form-done">

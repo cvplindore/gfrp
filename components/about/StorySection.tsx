@@ -36,10 +36,10 @@ export default function StorySection() {
                     src={aboutStory.image}
                     loading="lazy"
                     sizes="(max-width: 581px) 100vw, 581px"
-                    srcSet={`
-                    ${aboutStory.image} 500w,
-                    ${aboutStory.image} 540w
-                  `}
+                  //   srcSet={`
+                  //   ${aboutStory.image} 500w,
+                  //   ${aboutStory.image} 540w
+                  // `}
                     // srcSet="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ebc9cd565a25f4f309d278_image%20(1)-p-500.webp 500w, https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ebc9cd565a25f4f309d278_image%20(1).webp 581w"
                     alt="A group of friends standing and watching the sun set"
                     className="story_left-wrapper-image"

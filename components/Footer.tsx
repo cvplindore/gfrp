@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useLoader } from "./LoaderContext";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -15,6 +16,17 @@ const Footer = () => {
     setTimeout(() => setIsSubmitted(false), 3000);
   };
 
+  const { setHideLoader } = useLoader();
+  
+    function doReverse(e) {
+      // e.preventDefault();
+      setHideLoader(false);
+  
+      setTimeout(() => {
+        setHideLoader(true);
+      }, 4000);
+    }
+
   return (
     <footer className="c-footer">
       <div className="footer_wrapper">
@@ -24,6 +36,7 @@ const Footer = () => {
               href="/"
               aria-current="page"
               className="footer_linkblock w-inline-block w--current"
+              onClick={doReverse}
             >
               <img
                 src="https://i.postimg.cc/sX0kRg7R/svgviewer-png-output-4.png"
@@ -41,7 +54,7 @@ const Footer = () => {
               material innovations.
             </p>
             <div className="footer_formblock">
-              <form 
+              <form
                 // id="wf-form-Subscription-Email"
                 // name="wf-form-Subscription-Email"
                 // data-name="Subscription Email"
@@ -100,32 +113,53 @@ const Footer = () => {
                     href="/"
                     aria-current="page"
                     className="footer_nav-link w--current"
+                    onClick={doReverse}
                   >
                     Home
                   </Link>
                 </li>
                 <li className="footer_nav-list-item">
-                  <Link href="/about" className="footer_nav-link">
+                  <Link
+                    href="/about"
+                    className="footer_nav-link"
+                    onClick={doReverse}
+                  >
                     About
                   </Link>
                 </li>
                 <li className="footer_nav-list-item">
-                  <Link href="/services" className="footer_nav-link">
+                  <Link
+                    href="/services"
+                    className="footer_nav-link"
+                    onClick={doReverse}
+                  >
                     Resources
                   </Link>
                 </li>
                 <li className="footer_nav-list-item">
-                  <Link href="/projects" className="footer_nav-link">
+                  <Link
+                    href="/projects"
+                    className="footer_nav-link"
+                    onClick={doReverse}
+                  >
                     Products
                   </Link>
                 </li>
                 <li className="footer_nav-list-item">
-                  <Link href="/blog" className="footer_nav-link">
+                  <Link
+                    href="/blog"
+                    className="footer_nav-link"
+                    onClick={doReverse}
+                  >
                     Blog
                   </Link>
                 </li>
                 <li className="footer_nav-list-item">
-                  <Link href="/contact" className="footer_nav-link">
+                  <Link
+                    href="/contact"
+                    className="footer_nav-link"
+                    onClick={doReverse}
+                  >
                     Contact
                   </Link>
                 </li>
@@ -135,12 +169,20 @@ const Footer = () => {
               <h2 className="footer_nav-heading">Legal</h2>
               <ul role="list" className="footer_nav-list">
                 <li className="footer_nav-list-item">
-                  <Link href="/blog" className="footer_nav-link">
+                  <Link
+                    href="/blog"
+                    className="footer_nav-link"
+                    onClick={doReverse}
+                  >
                     Blog
                   </Link>
                 </li>
                 <li className="footer_nav-list-item">
-                  <Link href="/contact" className="footer_nav-link">
+                  <Link
+                    href="/contact"
+                    className="footer_nav-link"
+                    onClick={doReverse}
+                  >
                     Contact
                   </Link>
                 </li>
@@ -160,6 +202,7 @@ const Footer = () => {
                   href="/"
                   aria-current="page"
                   className="footer_socials-linkblock w-inline-block w--current"
+                  // onClick={doReverse}
                 >
                   <svg
                     className="footer_socials-logo"

@@ -4,9 +4,21 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
 import Link from "next/link";
+import { useLoader } from "../LoaderContext";
 
 const BlogHero = () => {
   const [blogPage, setBlogPage] = useState(null);
+
+  const { setHideLoader } = useLoader();
+    
+      function doReverse(e) {
+        // e.preventDefault();
+        setHideLoader(false);
+    
+        setTimeout(() => {
+          setHideLoader(true);
+        }, 4000);
+      }
 
   useEffect(() => {
     axios
@@ -70,6 +82,7 @@ const BlogHero = () => {
                     data-wf--cta-link--variant="primary"
                     href="/contact"
                     className="cta-linkblock cc-is-primary w-inline-block"
+                    onClick={doReverse}
                   >
                     <div className="cta-linkblock_text">Contact us</div>
                     <div className="cta-icon_wrap">
@@ -81,7 +94,7 @@ const BlogHero = () => {
                       </div>
                     </div>
                   </Link>
-                  <Link href="/contact" className="cta-link">
+                  <Link href="/contact" className="cta-link" onClick={doReverse}>
                     get started
                   </Link>
                 </div>

@@ -2,9 +2,20 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
+import { useLoader } from "../LoaderContext";
 
 
 export default function SingleBlog({ singleblog }) {
+  const { setHideLoader } = useLoader();
+    
+      function doReverse(e) {
+        // e.preventDefault();
+        setHideLoader(false);
+    
+        setTimeout(() => {
+          setHideLoader(true);
+        }, 4000);
+      }
   return (
     <section className="section_blog">
       <div className="padding-global padding-0">
@@ -112,6 +123,7 @@ export default function SingleBlog({ singleblog }) {
                   <Link
                     href="/blog"
                     className="projects_linkblock w-inline-block"
+                    onClick={doReverse}
                   >
                     <div className="projects_cta-text">View all blogs</div>
                     <img
@@ -142,6 +154,7 @@ export default function SingleBlog({ singleblog }) {
                       <Link
                         href={`/blog/${item.slug}`}
                         className="blogs_linkblock w-inline-block"
+                        onClick={doReverse}
                       >
                         <div className="blogs_image-wrapper">
                           <img

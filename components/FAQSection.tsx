@@ -9,6 +9,7 @@ import "./FAQSection.css"
 
 import { motion } from "framer-motion";
 import FadeInOnScroll from "./animation/FadeInOnScroll";
+import { useLoader } from "./LoaderContext";
 
 interface FAQItem {
   question: string;
@@ -69,6 +70,17 @@ const FAQSection = () => {
     const toggleFAQ = (index: number) => {
       setOpenFAQ(openFAQ === index ? null : index);
     };
+  
+  const { setHideLoader } = useLoader();
+  
+    function doReverse(e) {
+      // e.preventDefault();
+      setHideLoader(false);
+  
+      setTimeout(() => {
+        setHideLoader(true);
+      }, 4000);
+    }
 
   return (
     <section data-wf--faqs-section--variant="base" className="section_faqs">
@@ -177,6 +189,7 @@ const FAQSection = () => {
                       data-wf--cta-link--variant="primary"
                       href="/contact"
                       className="cta-linkblock cc-is-primary w-inline-block"
+                      onClick={doReverse}
                     >
                       <div className="cta-linkblock_text">Contact Us</div>
                       <div className="cta-icon_wrap">
@@ -226,6 +239,7 @@ const FAQSection = () => {
                       data-wf--cta-link--variant="primary"
                       href="/contact"
                       className="cta-linkblock cc-is-primary w-inline-block"
+                      onClick={doReverse}
                     >
                       <div className="cta-linkblock_text">Contact Us</div>
                       <div className="cta-icon_wrap">
@@ -247,7 +261,7 @@ const FAQSection = () => {
                         </div>
                       </div>
                     </Link>
-                    <Link href="/contact" className="cta-link">
+                    <Link href="/contact" className="cta-link" onClick={doReverse}>
                       Get started
                     </Link>
                   </div>

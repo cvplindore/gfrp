@@ -5,10 +5,22 @@ import Link from "next/link";
 import Image from "next/image";
 import FadeInOnScroll from "./animation/FadeInOnScroll";
 import axios from "axios";
+import { useLoader } from "./LoaderContext";
 
 
 const Hero = () => {
   const [hero, setHero] = useState(null);
+
+  const { setHideLoader } = useLoader();
+
+  function doReverse(e) {
+    // e.preventDefault();
+    setHideLoader(false);
+
+    setTimeout(() => {
+      setHideLoader(true);
+    }, 4000);
+  }
 
   useEffect(() => {
     axios
@@ -96,6 +108,7 @@ const Hero = () => {
                   data-wf--cta-link--variant="primary"
                   href="/contact"
                   className="cta-linkblock cc-is-primary w-inline-block"
+                  onClick={doReverse}
                 >
                   <div className="cta-linkblock_text">Contact Us</div>
                   <div className="cta-icon_wrap">
@@ -107,7 +120,7 @@ const Hero = () => {
                     </div>
                   </div>
                 </Link>
-                <Link href="/contact" className="cta-link">
+                <Link href="/contact" className="cta-link" onClick={doReverse}>
                   get started
                 </Link>
               </div>

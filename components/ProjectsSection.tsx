@@ -7,6 +7,7 @@ import axios from "axios";
 
 import { motion } from "framer-motion";
 import FadeInOnScroll from "./animation/FadeInOnScroll";
+import { useLoader } from "./LoaderContext";
 
 const ProjectsSection = () => {
   const applications = [
@@ -57,7 +58,18 @@ const ProjectsSection = () => {
 
   
 
-  if (!productss) return ;
+  if (!productss) return;
+  
+  const { setHideLoader } = useLoader();
+  
+    function doReverse(e) {
+      // e.preventDefault();
+      setHideLoader(false);
+  
+      setTimeout(() => {
+        setHideLoader(true);
+      }, 4000);
+    }
 
   const ProjectBlock = () => (
     <div className="project_block">
@@ -108,6 +120,7 @@ const ProjectsSection = () => {
           data-wf--cta-link--variant="primary"
           href=""
           className="cta-linkblock cc-is-primary w-inline-block"
+          onClick={doReverse}
         >
           <div className="cta-linkblock_text">VIEW product</div>
           <div className="cta-icon_wrap">
@@ -213,6 +226,7 @@ const ProjectsSection = () => {
                 <Link
                   href="/product"
                   className="projects_linkblock w-inline-block"
+                  onClick={doReverse}
                 >
                   <div className="projects_cta-text">View all products</div>
                   <Image
@@ -302,6 +316,7 @@ const ProjectsSection = () => {
                             data-wf--cta-link--variant="primary"
                             href="/contact"
                             className="cta-linkblock cc-is-primary w-inline-block"
+                            onClick={doReverse}
                           >
                             <div className="cta-linkblock_text">Contact us</div>
                             <div className="cta-icon_wrap">

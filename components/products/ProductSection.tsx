@@ -7,9 +7,20 @@ import axios from "axios";
 
 import { motion } from "framer-motion";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
+import { useLoader } from "../LoaderContext";
 
 
 export default function ProductSection() {
+  const { setHideLoader } = useLoader();
+    
+      function doReverse(e) {
+        // e.preventDefault();
+        setHideLoader(false);
+    
+        setTimeout(() => {
+          setHideLoader(true);
+        }, 4000);
+      }
   const applications = [
     {
       title: "Industrial construction",
@@ -94,6 +105,7 @@ export default function ProductSection() {
           data-wf--cta-link--variant="primary"
           href=""
           className="cta-linkblock cc-is-primary w-inline-block"
+          onClick={doReverse}
         >
           <div className="cta-linkblock_text">VIEW product</div>
           <div className="cta-icon_wrap">
@@ -354,6 +366,7 @@ export default function ProductSection() {
                             data-wf--cta-link--variant="primary"
                             href="/contact"
                             className="cta-linkblock cc-is-primary w-inline-block"
+                            onClick={doReverse}
                           >
                             <div className="cta-linkblock_text">Contact us</div>
                             <div className="cta-icon_wrap">

@@ -4,10 +4,22 @@ import { useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
+import { useLoader } from "../LoaderContext";
 
 
 export default function BlogSection() {
   const [blog, setBlog] = useState(null);
+
+  const { setHideLoader } = useLoader();
+    
+      function doReverse(e) {
+        // e.preventDefault();
+        setHideLoader(false);
+    
+        setTimeout(() => {
+          setHideLoader(true);
+        }, 4000);
+      }
 
   useEffect(() => {
     axios
@@ -51,6 +63,7 @@ export default function BlogSection() {
                       <Link
                         href={`/blog/${blog[0].slug}`}
                         className="blogs_linkblock featured w-inline-block"
+                        onClick={doReverse}
                       >
                         <div className="blogs_image-wrapper featured">
                           <img
@@ -133,6 +146,7 @@ export default function BlogSection() {
                       <Link
                         href={`/blog/${item.slug}`}
                         className="blogs_linkblock w-inline-block"
+                        onClick={doReverse}
                       >
                         <div className="blogs_image-wrapper">
                           <img

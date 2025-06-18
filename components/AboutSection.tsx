@@ -8,8 +8,19 @@ import { motion } from "framer-motion";
 import FadeInOnScroll from "./animation/FadeInOnScroll";
 import axios from "axios";
 import Link from "next/link";
+import { useLoader } from "./LoaderContext";
 
 const AboutSection = () => {
+  const { setHideLoader } = useLoader();
+  
+    function doReverse(e) {
+      // e.preventDefault();
+      setHideLoader(false);
+  
+      setTimeout(() => {
+        setHideLoader(true);
+      }, 4000);
+    }
   const benefits = [
     {
       icon: "https://i.postimg.cc/P5bDPL6T/svgviewer-png-output-5.png",
@@ -124,10 +135,10 @@ const AboutSection = () => {
                     //   https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?q=80&w=3046&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 500w,
                     //   https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?q=80&w=3046&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 540w
                     // "
-                    srcSet={`
-                      ${about.image2} 500w,
-                      ${about.image2} 540w
-                    `}
+                    // srcSet={`
+                    //   ${about.image2} 500w,
+                    //   ${about.image2} 540w
+                    // `}
                     alt="view of a house powered by solar"
                     className="about-us_image"
                   />
@@ -178,6 +189,7 @@ const AboutSection = () => {
                     data-wf--cta-link--variant="primary"
                     href="/about"
                     className="cta-linkblock cc-is-primary w-inline-block"
+                    onClick={doReverse}
                   >
                     <div className="cta-linkblock_text">About Us</div>
                     <div className="cta-icon_wrap">
@@ -241,10 +253,10 @@ const AboutSection = () => {
                     src={how.image}
                     loading="lazy"
                     sizes="(max-width: 595px) 100vw, 595px"
-                    srcSet={`
-                      ${how.image} 500w,
-                      ${how.image} 540w
-                    `}
+                    // srcSet={`
+                    //   ${how.image} 500w,
+                    //   ${how.image} 540w
+                    // `}
                     alt="an engineer installing solar panels on a roof"
                     className="about-us_content-image"
                   />
