@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import axios from "axios";
+import { motion } from "framer-motion";
+import FadeInOnScroll from "./animation/FadeInOnScroll";
 
 
 
@@ -29,30 +31,43 @@ const ProductSection = () => {
           <div className="container-large">
             <div className="services_wrapper">
               <div className="services_top-container">
-                <div className="about-us_text-dot-wrap">
-                  <div
-                    className="about-us_heading-dot"
-                    // style="background-color: #ff6b35 !important"
-                  ></div>
-                  <div className="about-us_heading text-color-white">
-                    Production
+                <FadeInOnScroll>
+                  <div className="about-us_text-dot-wrap">
+                    <div
+                      className="about-us_heading-dot"
+                      // style="background-color: #ff6b35 !important"
+                    ></div>
+                    <div className="about-us_heading text-color-white">
+                      Production
+                    </div>
                   </div>
-                </div>
-                <h2
-                  data-w-id="6fd54922-a902-7954-8109-83971e914c84"
-                  //   style="opacity: 0"
-                  className="services_main-heading cc-heading-h3 text-color-white"
-                >
-                  {pro.title}
-                </h2>
+                </FadeInOnScroll>
+                <FadeInOnScroll delay={0.2}>
+                  <h2
+                    data-w-id="6fd54922-a902-7954-8109-83971e914c84"
+                    //   style="opacity: 0"
+                    className="services_main-heading cc-heading-h3 text-color-white"
+                  >
+                    {pro.title}
+                  </h2>
+                </FadeInOnScroll>
               </div>
               <div className="services_block-list">
                 {pro.production_sections.map((item, index) => (
-                  <div
+                  <motion.div
                     // className="services_block"
                     className={`services_block ${
                       index % 2 !== 0 ? "alternate" : ""
                     }`}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.7,
+                      ease: "easeOut",
+                      
+                      delay: index * 0.2,
+                    }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="services_block-image-wrap">
                       {/* <iframe
@@ -149,7 +164,7 @@ const ProductSection = () => {
                         </div>
                       </a>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
                 {/* <div className="services_block">
                   <div className="services_block-image-wrap">

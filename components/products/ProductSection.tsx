@@ -5,6 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 
+import { motion } from "framer-motion";
+import FadeInOnScroll from "../animation/FadeInOnScroll";
+
+
 export default function ProductSection() {
   const applications = [
     {
@@ -247,16 +251,20 @@ export default function ProductSection() {
           <div className="projects_wrapper">
             <div className="projects_top-container">
               <div className="services_top-container project-section">
-                <div className="about-us_text-dot-wrap">
-                  <div
-                    className="about-us_heading-dot"
-                    style={{ backgroundColor: "#ff6b35" }}
-                  ></div>
-                  <div className="about-us_heading">Products</div>
-                </div>
-                <h2 className="services_main-heading cc-heading-h3">
-                  {productss.title}
-                </h2>
+                <FadeInOnScroll>
+                  <div className="about-us_text-dot-wrap">
+                    <div
+                      className="about-us_heading-dot"
+                      style={{ backgroundColor: "#ff6b35" }}
+                    ></div>
+                    <div className="about-us_heading">Products</div>
+                  </div>
+                </FadeInOnScroll>
+                <FadeInOnScroll delay={0.2}>
+                  <h2 className="services_main-heading cc-heading-h3">
+                    {productss.title}
+                  </h2>
+                </FadeInOnScroll>
               </div>
               {/* <Link href="#" className="projects_linkblock w-inline-block">
                 <div className="projects_cta-text">View all products</div>
@@ -274,9 +282,17 @@ export default function ProductSection() {
               <div role="list" className="projects-collection-list w-dyn-items">
                 {productss?.single_products?.map((product, index) => (
                   <React.Fragment key={index}>
-                    <div
+                    <motion.div
                       role="listitem"
                       className="projects-collection-item w-dyn-item"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.7,
+                        ease: "easeOut",
+                        delay: index * 0.2,
+                      }}
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <div className="project_block">
                         <div className="projects_left-container">
@@ -339,9 +355,7 @@ export default function ProductSection() {
                             href="/contact"
                             className="cta-linkblock cc-is-primary w-inline-block"
                           >
-                            <div className="cta-linkblock_text">
-                              Contact us
-                            </div>
+                            <div className="cta-linkblock_text">Contact us</div>
                             <div className="cta-icon_wrap">
                               <div className="cta-btn_icon w-embed">
                                 <Image
@@ -438,7 +452,7 @@ export default function ProductSection() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </React.Fragment>
                 ))}
                 <div

@@ -5,6 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 
+import { motion } from "framer-motion";
+import FadeInOnScroll from "./animation/FadeInOnScroll";
+
 const BlogSection = () => {
   const blogs = Array(3).fill({
     image: "https://composite-tech.com/wp-content/uploads/2024/09/Untitled.jpg",
@@ -47,28 +50,34 @@ const BlogSection = () => {
           <div className="blogs_wrapper">
             <div className="projects_top-container">
               <div className="services_top-container project-section">
-                <div className="about-us_text-dot-wrap">
-                  <div
-                    className="about-us_heading-dot"
-                    style={{ backgroundColor: "#ff6b35" }}
-                  ></div>
-                  <div className="about-us_heading">BLOG</div>
-                </div>
-                <h2 className="services_main-heading cc-heading-h3">
-                  Insights &amp; updates
-                </h2>
+                <FadeInOnScroll>
+                  <div className="about-us_text-dot-wrap">
+                    <div
+                      className="about-us_heading-dot"
+                      style={{ backgroundColor: "#ff6b35" }}
+                    ></div>
+                    <div className="about-us_heading">BLOG</div>
+                  </div>
+                </FadeInOnScroll>
+                <FadeInOnScroll delay={0.2}>
+                  <h2 className="services_main-heading cc-heading-h3">
+                    Insights &amp; updates
+                  </h2>
+                </FadeInOnScroll>
               </div>
-              <Link href="#" className="projects_linkblock w-inline-block">
-                <div className="projects_cta-text">View all blogs</div>
-                <Image
-                  src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67eb1d94ffa650511871a81c_Vector%20(1).svg"
-                  loading="lazy"
-                  alt=""
-                  className="projects_cta-arrow"
-                  width={16}
-                  height={16}
-                />
-              </Link>
+              <FadeInOnScroll delay={0.2}>
+                <Link href="#" className="projects_linkblock w-inline-block">
+                  <div className="projects_cta-text">View all blogs</div>
+                  <Image
+                    src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67eb1d94ffa650511871a81c_Vector%20(1).svg"
+                    loading="lazy"
+                    alt=""
+                    className="projects_cta-arrow"
+                    width={16}
+                    height={16}
+                  />
+                </Link>
+              </FadeInOnScroll>
             </div>
             <div className="blogs_wrap">
               <div className="blogs_collection-list-wrapper w-dyn-list">
@@ -124,12 +133,23 @@ const BlogSection = () => {
                     </div>
                   ))} */}
                   {blog.map((item, index) => (
-                    <div
+                    <motion.div
                       key={index}
                       role="listitem"
                       className="blogs_collection-item w-dyn-item"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.7,
+                        ease: "easeOut",
+                        delay: index * 0.2,
+                      }}
+                      viewport={{ once: true, amount: 0.2 }}
                     >
-                      <Link href={item.slug} className="blogs_linkblock w-inline-block">
+                      <Link
+                        href={item.slug}
+                        className="blogs_linkblock w-inline-block"
+                      >
                         <div className="blogs_image-wrapper">
                           <Image
                             src={item.image}
@@ -177,7 +197,7 @@ const BlogSection = () => {
                           </div>
                         </div>
                       </Link>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>

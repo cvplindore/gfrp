@@ -90,26 +90,28 @@ const Hero = () => {
                 {/* {hero.description} */}
               </p>
             </FadeInOnScroll>
-            <div className="hero_cta-group button-group">
-              <a
-                data-wf--cta-link--variant="primary"
-                href="/contact"
-                className="cta-linkblock cc-is-primary w-inline-block"
-              >
-                <div className="cta-linkblock_text">Contact Us</div>
-                <div className="cta-icon_wrap">
-                  <div className="cta-btn_icon w-embed">
-                    <img src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg" />
+            <FadeInOnScroll delay={0.3}>
+              <div className="hero_cta-group button-group">
+                <Link
+                  data-wf--cta-link--variant="primary"
+                  href="/contact"
+                  className="cta-linkblock cc-is-primary w-inline-block"
+                >
+                  <div className="cta-linkblock_text">Contact Us</div>
+                  <div className="cta-icon_wrap">
+                    <div className="cta-btn_icon w-embed">
+                      <img src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg" />
+                    </div>
+                    <div className="cta-btn_icon is-absolute w-embed">
+                      <img src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg" />
+                    </div>
                   </div>
-                  <div className="cta-btn_icon is-absolute w-embed">
-                    <img src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg" />
-                  </div>
-                </div>
-              </a>
-              <a href="/contact" className="cta-link">
-                get started
-              </a>
-            </div>
+                </Link>
+                <Link href="/contact" className="cta-link">
+                  get started
+                </Link>
+              </div>
+            </FadeInOnScroll>
           </div>
         </div>
       </div>

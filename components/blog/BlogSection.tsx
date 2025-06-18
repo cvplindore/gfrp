@@ -2,6 +2,10 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { motion } from "framer-motion";
+import FadeInOnScroll from "../animation/FadeInOnScroll";
+
+
 export default function BlogSection() {
   const [blog, setBlog] = useState(null);
 
@@ -24,92 +28,107 @@ export default function BlogSection() {
         <div className="container-large">
           <div className="blog_wrapper">
             <div className="blog_featured-wrapper">
-              <div className="about-us_text-dot-wrap">
-                <div
-                  className="about-us_heading-dot"
-                  // style="background-color: #ff6b35 !important"
-                  style={{ backgroundColor: "#ff6b35" }}
-                ></div>
-                <div className="about-us_heading">FEATURED BLOG</div>
-              </div>
-              <div className="featured-collection-list-wrapper w-dyn-list">
-                <div
-                  role="list"
-                  className="featured-collection-list w-dyn-items"
-                >
+              <FadeInOnScroll>
+                <div className="about-us_text-dot-wrap">
                   <div
-                    role="listitem"
-                    className="featured-collection-item w-dyn-item"
+                    className="about-us_heading-dot"
+                    // style="background-color: #ff6b35 !important"
+                    style={{ backgroundColor: "#ff6b35" }}
+                  ></div>
+                  <div className="about-us_heading">FEATURED BLOG</div>
+                </div>
+              </FadeInOnScroll>
+              <FadeInOnScroll delay={0.2}>
+                <div className="featured-collection-list-wrapper w-dyn-list">
+                  <div
+                    role="list"
+                    className="featured-collection-list w-dyn-items"
                   >
-                    <Link
-                      href={`/blog/${blog[0].slug}`}
-                      className="blogs_linkblock featured w-inline-block"
+                    <div
+                      role="listitem"
+                      className="featured-collection-item w-dyn-item"
                     >
-                      <div className="blogs_image-wrapper featured">
-                        <img
-                          src={blog[0].image}
-                          loading="lazy"
-                          alt=""
-                          className="blogs_main-image"
-                        />
-                      </div>
-                      <div className="blogs_content-wrap featured">
-                        <div className="blogs_middle-container-wrap">
-                          <div className="blogs_tag">{blog[0].tag}</div>
-                          <div className="blog_reading-time">
-                            {blog[0].min_read} mins read
-                          </div>
+                      <Link
+                        href={`/blog/${blog[0].slug}`}
+                        className="blogs_linkblock featured w-inline-block"
+                      >
+                        <div className="blogs_image-wrapper featured">
+                          <img
+                            src={blog[0].image}
+                            loading="lazy"
+                            alt=""
+                            className="blogs_main-image"
+                          />
                         </div>
-                        <h2 className="blog_title featured">{blog[0].title}</h2>
-                        <p className="blog_summary">{blog[0].description}</p>
-                        <div className="blog_author-wrap">
-                          <div className="blog_author-image-wrap">
-                            <img
-                              src={blog[0].author.profile_picture}
-                              loading="lazy"
-                              alt=""
-                              className="blog_author-image"
-                            />
+                        <div className="blogs_content-wrap featured">
+                          <div className="blogs_middle-container-wrap">
+                            <div className="blogs_tag">{blog[0].tag}</div>
+                            <div className="blog_reading-time">
+                              {blog[0].min_read} mins read
+                            </div>
                           </div>
-                          <div className="blog_author-detail-wrap">
-                            <h3 className="blog_author-name featured">
-                              {blog[0].author.name}
-                            </h3>
-                            <p className="blog_author-position">
-                              {new Date(blog[0].created_at).toLocaleDateString(
-                                "en-US",
-                                {
+                          <h2 className="blog_title featured">
+                            {blog[0].title}
+                          </h2>
+                          <p className="blog_summary">{blog[0].description}</p>
+                          <div className="blog_author-wrap">
+                            <div className="blog_author-image-wrap">
+                              <img
+                                src={blog[0].author.profile_picture}
+                                loading="lazy"
+                                alt=""
+                                className="blog_author-image"
+                              />
+                            </div>
+                            <div className="blog_author-detail-wrap">
+                              <h3 className="blog_author-name featured">
+                                {blog[0].author.name}
+                              </h3>
+                              <p className="blog_author-position">
+                                {new Date(
+                                  blog[0].created_at
+                                ).toLocaleDateString("en-US", {
                                   year: "numeric",
                                   month: "long",
                                   day: "numeric",
-                                }
-                              )}
-                            </p>
+                                })}
+                              </p>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Link>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </FadeInOnScroll>
             </div>
             <div className="blog_featured-wrapper recent-blog">
-              <div className="about-us_text-dot-wrap recent-blog-header">
-                <div
-                  className="about-us_heading-dot"
-                  // style="background-color: #ff6b35 !important"
-                  style={{ backgroundColor: "#ff6b35" }}
-                ></div>
-                <div className="about-us_heading">RECENT BLOGS</div>
-              </div>
+              <FadeInOnScroll delay={0.3}>
+                <div className="about-us_text-dot-wrap recent-blog-header">
+                  <div
+                    className="about-us_heading-dot"
+                    // style="background-color: #ff6b35 !important"
+                    style={{ backgroundColor: "#ff6b35" }}
+                  ></div>
+                  <div className="about-us_heading">RECENT BLOGS</div>
+                </div>
+              </FadeInOnScroll>
               <div className="blogs_collection-list-wrapper w-dyn-list">
                 <div role="list" className="blogs_collection-list w-dyn-items">
                   {/* {blog.slice(1).map((item) => ( */}
                   {blog.slice(1).map((item, index) => (
-                    <div
+                    <motion.div
                       role="listitem"
-                          className="blogs_collection-item w-dyn-item"
-                          key={index}
+                      className="blogs_collection-item w-dyn-item"
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.7,
+                        ease: "easeOut",
+                        delay: index * 0.2,
+                      }}
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <Link
                         href={`/blog/${item.slug}`}
@@ -168,7 +187,7 @@ export default function BlogSection() {
                           </div>
                         </div>
                       </Link>
-                    </div>
+                    </motion.div>
                   ))}
                   {/* <div
                       role="listitem"

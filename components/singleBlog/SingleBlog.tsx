@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-
+import { motion } from "framer-motion";
+import FadeInOnScroll from "../animation/FadeInOnScroll";
 
 
 export default function SingleBlog({ singleblog }) {
@@ -9,9 +10,17 @@ export default function SingleBlog({ singleblog }) {
       <div className="padding-global padding-0">
         <div className="container-large">
           <div className="blog_wrapper">
-            <div
+            <motion.div
               className="blog-collection_body w-richtext"
               dangerouslySetInnerHTML={{ __html: singleblog.content }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{
+                duration: 0.7,
+                ease: "easeOut",
+                delay: 0.2,
+              }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               {/* <h2>How Battery Storage Boosts Energy Savings</h2>
               <p>
@@ -91,34 +100,44 @@ export default function SingleBlog({ singleblog }) {
                 Contact us today to learn how you can start saving with energy
                 storage.
               </p> */}
-            </div>
+            </motion.div>
             <div className="blog_featured-wrapper recent-blog">
-              <div className="projects_top-container">
-                <div className="services_top-container project-section">
-                  <h2 className="services_main-heading cc-heading-h3">
-                    More Blogs
-                  </h2>
+              <FadeInOnScroll>
+                <div className="projects_top-container">
+                  <div className="services_top-container project-section">
+                    <h2 className="services_main-heading cc-heading-h3">
+                      More Blogs
+                    </h2>
+                  </div>
+                  <Link
+                    href="/blog"
+                    className="projects_linkblock w-inline-block"
+                  >
+                    <div className="projects_cta-text">View all blogs</div>
+                    <img
+                      src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67eb1d94ffa650511871a81c_Vector%20(1).svg"
+                      loading="lazy"
+                      alt=""
+                      className="projects_cta-arrow"
+                    />
+                  </Link>
                 </div>
-                <Link
-                  href="/blog"
-                  className="projects_linkblock w-inline-block"
-                >
-                  <div className="projects_cta-text">View all blogs</div>
-                  <img
-                    src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67eb1d94ffa650511871a81c_Vector%20(1).svg"
-                    loading="lazy"
-                    alt=""
-                    className="projects_cta-arrow"
-                  />
-                </Link>
-              </div>
+              </FadeInOnScroll>
               <div className="blogs_collection-list-wrapper more-blogs w-dyn-list">
                 <div role="list" className="blogs_collection-list w-dyn-items">
                   {singleblog.related_blogs.map((item, index) => (
-                    <div
+                    <motion.div
                       role="listitem"
                       className="blogs_collection-item w-dyn-item"
                       key={index}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.7,
+                        ease: "easeOut",
+                        delay: index * 0.2,
+                      }}
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <Link
                         href={`/blog/${item.slug}`}
@@ -155,19 +174,20 @@ export default function SingleBlog({ singleblog }) {
                                 {item.author.name}
                               </h4>
                               <p className="blog_author-position">
-                                {new Date(
-                                  item.created_at
-                                ).toLocaleDateString("en-US", {
-                                  year: "numeric",
-                                  month: "long",
-                                  day: "numeric",
-                                })}
+                                {new Date(item.created_at).toLocaleDateString(
+                                  "en-US",
+                                  {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                  }
+                                )}
                               </p>
                             </div>
                           </div>
                         </div>
                       </Link>
-                    </div>
+                    </motion.div>
                   ))}
                   {/* <div
                     role="listitem"

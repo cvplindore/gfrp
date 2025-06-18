@@ -7,6 +7,9 @@ import { ChevronDown } from "lucide-react";
 
 import "./FAQSection.css"
 
+import { motion } from "framer-motion";
+import FadeInOnScroll from "./animation/FadeInOnScroll";
+
 interface FAQItem {
   question: string;
   answer: string;
@@ -74,16 +77,20 @@ const FAQSection = () => {
           <div className="faqs_wrapper">
             <div className="faqs_top-container">
               <div className="services_top-container project-section faqs-section">
-                <div className="about-us_text-dot-wrap">
-                  <div
-                    className="about-us_heading-dot"
-                    style={{ backgroundColor: "#ff6b35" }}
-                  ></div>
-                  <div className="about-us_heading">FAQ</div>
-                </div>
-                <h2 className="services_main-heading cc-heading-h3">
-                  Frequently Asked Questions
-                </h2>
+                <FadeInOnScroll>
+                  <div className="about-us_text-dot-wrap">
+                    <div
+                      className="about-us_heading-dot"
+                      style={{ backgroundColor: "#ff6b35" }}
+                    ></div>
+                    <div className="about-us_heading">FAQ</div>
+                  </div>
+                </FadeInOnScroll>
+                <FadeInOnScroll delay={0.2}>
+                  <h2 className="services_main-heading cc-heading-h3">
+                    Frequently Asked Questions
+                  </h2>
+                </FadeInOnScroll>
               </div>
             </div>
             <div className="faqs_middle-container">
@@ -125,7 +132,18 @@ const FAQSection = () => {
               <div className="faq-items-container">
                 <div className="faq-items-list">
                   {faqs.map((faq, index) => (
-                    <div key={index} className="faq-item">
+                    <motion.div
+                      key={index}
+                      className="faq-item"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.7,
+                        ease: "easeOut",
+                        delay: index * 0.2,
+                      }}
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       <button
                         onClick={() => toggleFAQ(index)}
                         className="faq-question-button"
@@ -148,96 +166,103 @@ const FAQSection = () => {
                       >
                         <div className="faq-answer-text">{faq.answer}</div>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
               <div className="faqs_cta-text-wrap">
-                <div className="faqs_cta-wrap">
-                  <Link
-                    data-wf--cta-link--variant="primary"
-                    href="/contact"
-                    className="cta-linkblock cc-is-primary w-inline-block"
-                  >
-                    <div className="cta-linkblock_text">Contact Us</div>
-                    <div className="cta-icon_wrap">
-                      <div className="cta-btn_icon w-embed">
-                        <Image
-                          src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg"
-                          alt="Arrow"
-                          width={16}
-                          height={16}
-                        />
+                <FadeInOnScroll>
+                  <div className="faqs_cta-wrap">
+                    <Link
+                      data-wf--cta-link--variant="primary"
+                      href="/contact"
+                      className="cta-linkblock cc-is-primary w-inline-block"
+                    >
+                      <div className="cta-linkblock_text">Contact Us</div>
+                      <div className="cta-icon_wrap">
+                        <div className="cta-btn_icon w-embed">
+                          <Image
+                            src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg"
+                            alt="Arrow"
+                            width={16}
+                            height={16}
+                          />
+                        </div>
+                        <div className="cta-btn_icon is-absolute w-embed">
+                          <Image
+                            src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg"
+                            alt="Arrow"
+                            width={16}
+                            height={16}
+                          />
+                        </div>
                       </div>
-                      <div className="cta-btn_icon is-absolute w-embed">
-                        <Image
-                          src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg"
-                          alt="Arrow"
-                          width={16}
-                          height={16}
-                        />
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-                <p className="faqs_contact-text">
-                  Still have questions? We're here for you! Whether it's about
-                  performance, pricing, or project suitability — our team is
-                  ready to assist.
-                </p>
+                    </Link>
+                  </div>
+                </FadeInOnScroll>
+                <FadeInOnScroll>
+                  <p className="faqs_contact-text">
+                    Still have questions? We're here for you! Whether it's about
+                    performance, pricing, or project suitability — our team is
+                    ready to assist.
+                  </p>
+                </FadeInOnScroll>
               </div>
             </div>
-            <div className="faqs_bottom-container">
-              <h3 className="faqs_footer-heading cc-heading-h3">
-                Ready to build stronger? Let's get started.
-              </h3>
-              <div className="faqs_footer-right-container">
-                <p className="faqs_footer-text">
-                  See how simple it is to strengthen your project with advanced,
-                  corrosion-free rebar solutions. Whether you're ready to build
-                  or just exploring, we're here to support every step.
-                </p>
-                <div className="faqs_cta-group">
-                  <Link
-                    data-wf--cta-link--variant="primary"
-                    href="/contact"
-                    className="cta-linkblock cc-is-primary w-inline-block"
-                  >
-                    <div className="cta-linkblock_text">Contact Us</div>
-                    <div className="cta-icon_wrap">
-                      <div className="cta-btn_icon w-embed">
-                        <Image
-                          src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg"
-                          alt="Arrow"
-                          width={16}
-                          height={16}
-                        />
+            <FadeInOnScroll delay={0.2}>
+              <div className="faqs_bottom-container">
+                <h3 className="faqs_footer-heading cc-heading-h3">
+                  Ready to build stronger? Let's get started.
+                </h3>
+                <div className="faqs_footer-right-container">
+                  <p className="faqs_footer-text">
+                    See how simple it is to strengthen your project with
+                    advanced, corrosion-free rebar solutions. Whether you're
+                    ready to build or just exploring, we're here to support
+                    every step.
+                  </p>
+                  <div className="faqs_cta-group">
+                    <Link
+                      data-wf--cta-link--variant="primary"
+                      href="/contact"
+                      className="cta-linkblock cc-is-primary w-inline-block"
+                    >
+                      <div className="cta-linkblock_text">Contact Us</div>
+                      <div className="cta-icon_wrap">
+                        <div className="cta-btn_icon w-embed">
+                          <Image
+                            src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg"
+                            alt="Arrow"
+                            width={16}
+                            height={16}
+                          />
+                        </div>
+                        <div className="cta-btn_icon is-absolute w-embed">
+                          <Image
+                            src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg"
+                            alt="Arrow"
+                            width={16}
+                            height={16}
+                          />
+                        </div>
                       </div>
-                      <div className="cta-btn_icon is-absolute w-embed">
-                        <Image
-                          src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ea760380058367c484cea3_right-arrow.svg"
-                          alt="Arrow"
-                          width={16}
-                          height={16}
-                        />
-                      </div>
-                    </div>
-                  </Link>
-                  <Link href="/contact" className="cta-link">
-                    Get started
-                  </Link>
+                    </Link>
+                    <Link href="/contact" className="cta-link">
+                      Get started
+                    </Link>
+                  </div>
                 </div>
+                <Image
+                  src="https://i.postimg.cc/13PtYySz/Untitled-design.png"
+                  loading="lazy"
+                  sizes="(max-width: 2880px) 100vw, 2880px"
+                  alt=""
+                  className="faqs_bottom-container-bg"
+                  width={2880}
+                  height={800}
+                />
               </div>
-              <Image
-                src="https://i.postimg.cc/13PtYySz/Untitled-design.png"
-                loading="lazy"
-                sizes="(max-width: 2880px) 100vw, 2880px"
-                alt=""
-                className="faqs_bottom-container-bg"
-                width={2880}
-                height={800}
-              />
-            </div>
+            </FadeInOnScroll>
           </div>
         </div>
       </div>

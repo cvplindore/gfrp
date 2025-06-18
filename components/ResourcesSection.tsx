@@ -3,6 +3,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+import { motion } from "framer-motion";
+import FadeInOnScroll from "./animation/FadeInOnScroll";
+
 const ResourcesSection = () => {
   const resources = Array(6).fill({
     title: "RAPORT ICECON - TESTARI BARE COMPOZITE",
@@ -32,27 +35,33 @@ const ResourcesSection = () => {
           <div className="why_wrapper">
             <div className="why_top-container home-page">
               <div className="why_left-wrapper home-page">
-                <div className="about-us_text-dot-wrap">
-                  <div
-                    className="about-us_heading-dot cc-white"
-                    style={{ backgroundColor: "#ff6b35" }}
-                  ></div>
-                  <div className="about-us_heading cc-white">Resources</div>
-                </div>
-                <h2 className="why_main-heading cc-heading-h3 home-page">
-                  {resource.title}
-                </h2>
+                <FadeInOnScroll>
+                  <div className="about-us_text-dot-wrap">
+                    <div
+                      className="about-us_heading-dot cc-white"
+                      style={{ backgroundColor: "#ff6b35" }}
+                    ></div>
+                    <div className="about-us_heading cc-white">Resources</div>
+                  </div>
+                </FadeInOnScroll>
+                <FadeInOnScroll delay={0.2}>
+                  <h2 className="why_main-heading cc-heading-h3 home-page">
+                    {resource.title}
+                  </h2>
+                </FadeInOnScroll>
               </div>
-              <div className="why_right-wrapper">
-                <p
-                  className="why_subtext cc-title-small"
-                  dangerouslySetInnerHTML={{ __html: resource.description }}
-                >
-                  {/* All our products are certified and fully compliant with
+              <FadeInOnScroll delay={0.3}>
+                <div className="why_right-wrapper">
+                  <p
+                    className="why_subtext cc-title-small"
+                    dangerouslySetInnerHTML={{ __html: resource.description }}
+                  >
+                    {/* All our products are certified and fully compliant with
                   industry standards — ensuring unmatched quality, performance,
                   and reliability in every application. */}
-                </p>
-              </div>
+                  </p>
+                </div>
+              </FadeInOnScroll>
             </div>
             <div className="why-us_grid">
               {/* {resources.map((resource, index) => (
@@ -82,10 +91,18 @@ const ResourcesSection = () => {
                 </div>
               ))} */}
               {resource.technical_resources.map((res, index) => (
-                <div
+                <motion.div
                   key={index}
                   data-w-id="4a36a7ce-9ad2-b919-d7ad-e058ddd21af3"
                   className="why-us_block"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{
+                    duration: 0.7,
+                    ease: "easeOut",
+                    delay: index * 0.2,
+                  }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   <a href={res.file} target="_blank" rel="noopener noreferrer">
                     <svg
@@ -110,7 +127,7 @@ const ResourcesSection = () => {
                   >
                     {/* {resource.description} */}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

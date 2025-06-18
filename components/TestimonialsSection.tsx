@@ -2,6 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import FadeInOnScroll from "./animation/FadeInOnScroll";
 
 const TestimonialsSection = () => {
   const testimonials = Array(3).fill({
@@ -22,16 +24,20 @@ const TestimonialsSection = () => {
           <div className="testimonials_wrapper">
             <div className="projects_top-container">
               <div className="services_top-container project-section quotes-section">
-                <div className="about-us_text-dot-wrap">
-                  <div
-                    className="about-us_heading-dot"
-                    style={{ backgroundColor: "#ff6b35" }}
-                  ></div>
-                  <div className="about-us_heading">TESTIMONIALS</div>
-                </div>
-                <h2 className="services_main-heading cc-heading-h3">
-                  Real results, real feedback
-                </h2>
+                <FadeInOnScroll>
+                  <div className="about-us_text-dot-wrap">
+                    <div
+                      className="about-us_heading-dot"
+                      style={{ backgroundColor: "#ff6b35" }}
+                    ></div>
+                    <div className="about-us_heading">TESTIMONIALS</div>
+                  </div>
+                </FadeInOnScroll>
+                <FadeInOnScroll delay={0.2}>
+                  <h2 className="services_main-heading cc-heading-h3">
+                    Real results, real feedback
+                  </h2>
+                </FadeInOnScroll>
               </div>
             </div>
             <div className="testimonials_wrap">
@@ -91,10 +97,10 @@ const TestimonialsSection = () => {
             </div>
             <div className="testimonials_content-container">
               <div
-                data-delay="4000"
+                data-delay="2000"
                 data-animation="slide"
                 className="quotes_slider w-slider"
-                data-autoplay="false"
+                data-autoplay="true"
                 data-easing="ease"
                 data-hide-arrows="false"
                 data-disable-swipe="false"
@@ -105,7 +111,17 @@ const TestimonialsSection = () => {
               >
                 <div className="quotes_slider-mask w-slider-mask">
                   {testimonials.map((testimonial, index) => (
-                    <div key={index} className="quotes_slider-slide w-slide">
+                    <motion.div
+                      key={index}
+                      className="quotes_slider-slide w-slide"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.7,
+                        ease: "easeOut",
+                      }}
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       <div className="quotes_slider-container">
                         <div className="quotes_slider-top-container">
                           <svg
@@ -158,7 +174,7 @@ const TestimonialsSection = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
                 <div className="quotes_slider-arrow left-arrow w-slider-arrow-left">

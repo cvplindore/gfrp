@@ -2714,7 +2714,7 @@ figcaption {
   transition: background-color 0.45s;
 }
 .cta-link:hover {
-  background-color: var(--secondary-color);
+  /* background-color: var(--secondary-color); */
 }
 .navbar_linkblock {
   color: #fff;
@@ -2758,7 +2758,7 @@ figcaption {
 }
 .navbar_lottie-menu-nav {
   z-index: 2;
-  width: 2rem;
+  width: 2.5rem;
   display: none;
   position: relative;
 }
@@ -7041,7 +7041,26 @@ input {
 }
 
 
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #1b365d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  transition: opacity 0.3s ease-in;
+  pointer-events: all;
+  opacity: 1;
+  overflow: hidden;
+}
 
+.loader-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
 
 
 /* hehehehe  */
