@@ -441,7 +441,7 @@ export default function ProductSection() {
                                 </div>
                               ))} */}
                             </div>
-                            <div className="project_slider-arrow left-arrow w-slider-arrow-left">
+                            {/* <div className="project_slider-arrow left-arrow w-slider-arrow-left">
                               <Image
                                 src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67eb21d820eccea2746fab96_Vector.svg"
                                 loading="lazy"
@@ -460,7 +460,7 @@ export default function ProductSection() {
                                 width={16}
                                 height={16}
                               />
-                            </div>
+                            </div> */}
                             <div className="project_silder-nav hide w-slider-nav w-round w-num"></div>
                           </div>
                         </div>

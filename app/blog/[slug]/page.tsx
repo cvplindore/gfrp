@@ -46,7 +46,7 @@ export default function SingleBlogPage() {
       <main className="main-wrapper sub-pages">
         <Hero singleblog={singleblog} />
         <SingleBlog singleblog={singleblog} />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FAQSection />
       </main>
       <Footer />

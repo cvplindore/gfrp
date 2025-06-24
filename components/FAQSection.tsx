@@ -16,41 +16,100 @@ interface FAQItem {
   answer: string;
 }
 
+// const faqs: FAQItem[] = [
+//   {
+//     question:
+//       "What are the main benefits of using fiber-reinforced polymer (FRP) rebar?",
+//     answer:
+//       "FRP rebar offers superior corrosion resistance, is lightweight yet strong, and provides excellent durability in harsh environments. Unlike traditional steel rebar, FRP won't rust or corrode, making it ideal for marine structures, bridges, and buildings in corrosive environments.",
+//   },
+//   {
+//     question:
+//       "How does FRP rebar compare to traditional steel rebar in terms of strength?",
+//     answer:
+//       "FRP rebar has a tensile strength comparable to or exceeding that of steel rebar, while being significantly lighter. The modulus of elasticity may be different, so proper engineering design is essential to ensure optimal performance in your specific application.",
+//   },
+//   {
+//     question: "What types of projects are best suited for FRP rebar?",
+//     answer:
+//       "FRP rebar is ideal for marine structures, parking garages, bridges, tunnels, and any concrete structure exposed to de-icing salts or chemical environments. It's also excellent for projects requiring non-magnetic properties or where future MRI compatibility is needed.",
+//   },
+//   {
+//     question: "Is FRP rebar more expensive than steel rebar?",
+//     answer:
+//       "While the initial cost of FRP rebar may be higher than steel, the long-term savings from reduced maintenance, longer lifespan, and elimination of corrosion-related repairs often make it more cost-effective over the structure's lifetime.",
+//   },
+//   {
+//     question: "How do I properly install FRP rebar?",
+//     answer:
+//       "FRP rebar installation is similar to steel rebar but requires specific techniques. Use proper cutting tools, maintain adequate concrete cover, and follow manufacturer guidelines for bending radii and connection methods. We provide detailed installation guides and technical support.",
+//   },
+//   {
+//     question: "What design codes and standards apply to FRP rebar?",
+//     answer:
+//       "FRP rebar design follows standards such as ACI 440.1R, CSA S806, and various international codes. Our technical team can help ensure your project meets all applicable standards and provide necessary documentation for approvals.",
+//   },
+// ];
+
+
 const faqs: FAQItem[] = [
   {
-    question:
-      "What are the main benefits of using fiber-reinforced polymer (FRP) rebar?",
+    question: "What types of GFRP machinery do you offer?",
     answer:
-      "FRP rebar offers superior corrosion resistance, is lightweight yet strong, and provides excellent durability in harsh environments. Unlike traditional steel rebar, FRP won't rust or corrode, making it ideal for marine structures, bridges, and buildings in corrosive environments.",
+      "We provide production lines for GFRP rebar, fiberglass mesh, bent elements, and fiber cutting systems, with models tailored for different capacities and automation needs.",
+  },
+  {
+    question: "What is the expected ROI for a GFRP production line?",
+    answer:
+      "Most clients recover their investment within 3 months, depending on production scale and local market conditions.",
+  },
+  {
+    question: "What raw materials are needed for GFRP production?",
+    answer:
+      "You will need fiberglass roving, thermosetting resin (polyester, vinyl ester, or epoxy), catalysts, and optional sand coating for construction applications.",
+  },
+  {
+    question: "Can your machines work with other fibers like basalt or carbon?",
+    answer:
+      "Yes, with specific adaptations, our machines can process basalt or carbon fiber for specialized applications.",
+  },
+  {
+    question: "How long does installation and training take?",
+    answer:
+      "Standard installation takes 2–3 working days, with operator training usually completed in 1–2 days.",
+  },
+  {
+    question: "Do you provide post-installation technical support?",
+    answer:
+      "Yes, we offer lifetime remote support, technical consultations, and spare parts supply globally.",
+  },
+  {
+    question: "What is the production capacity of your machines?",
+    answer:
+      "Our high-capacity lines can produce up to 6 GFRP rods simultaneously, yielding over 50,000 meters per day.",
+  },
+  {
+    question: "Are your machines compliant with international standards?",
+    answer:
+      "Yes, our equipment is designed to produce GFRP rebar that meets ASTM, ISO, and other international standards.",
+  },
+  {
+    question: "What is the minimum investment required?",
+    answer:
+      "A small-scale GFRP rebar production line starts at around $80,000–$95,000, depending on capacity and automation.",
   },
   {
     question:
-      "How does FRP rebar compare to traditional steel rebar in terms of strength?",
+      "Can the machines be customized for different rebar sizes and shapes?",
     answer:
-      "FRP rebar has a tensile strength comparable to or exceeding that of steel rebar, while being significantly lighter. The modulus of elasticity may be different, so proper engineering design is essential to ensure optimal performance in your specific application.",
+      "Yes, we offer custom mandrels for various diameters and can design molds for special profiles.",
   },
   {
-    question: "What types of projects are best suited for FRP rebar?",
+    question: "Do you help with factory layout and site setup?",
     answer:
-      "FRP rebar is ideal for marine structures, parking garages, bridges, tunnels, and any concrete structure exposed to de-icing salts or chemical environments. It's also excellent for projects requiring non-magnetic properties or where future MRI compatibility is needed.",
-  },
-  {
-    question: "Is FRP rebar more expensive than steel rebar?",
-    answer:
-      "While the initial cost of FRP rebar may be higher than steel, the long-term savings from reduced maintenance, longer lifespan, and elimination of corrosion-related repairs often make it more cost-effective over the structure's lifetime.",
-  },
-  {
-    question: "How do I properly install FRP rebar?",
-    answer:
-      "FRP rebar installation is similar to steel rebar but requires specific techniques. Use proper cutting tools, maintain adequate concrete cover, and follow manufacturer guidelines for bending radii and connection methods. We provide detailed installation guides and technical support.",
-  },
-  {
-    question: "What design codes and standards apply to FRP rebar?",
-    answer:
-      "FRP rebar design follows standards such as ACI 440.1R, CSA S806, and various international codes. Our technical team can help ensure your project meets all applicable standards and provide necessary documentation for approvals.",
+      "We provide detailed layout plans and guidance for optimal equipment placement and workflow after order confirmation.",
   },
 ];
-
 
 const FAQSection = () => {
   // const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -222,7 +281,7 @@ const FAQSection = () => {
                 </FadeInOnScroll>
               </div>
             </div>
-            <FadeInOnScroll delay={0.2}>
+            {/* <FadeInOnScroll delay={0.2}>
               <div className="faqs_bottom-container">
                 <h3 className="faqs_footer-heading cc-heading-h3">
                   Ready to build stronger? Let's get started.
@@ -276,7 +335,7 @@ const FAQSection = () => {
                   height={800}
                 />
               </div>
-            </FadeInOnScroll>
+            </FadeInOnScroll> */}
           </div>
         </div>
       </div>

@@ -46,7 +46,7 @@ const LogoSection = () => {
 
   return (
     <div className="home_logo-wrapper">
-      <Marquee speed={50} gradient={false}>
+      {/* <Marquee speed={50} gradient={false}>
         <div
           className="home_logo-inner"
           style={{ display: "flex", gap: "7rem", marginLeft: '7rem' }}
@@ -65,20 +65,8 @@ const LogoSection = () => {
             />
           ))}
         </div>
-      </Marquee>
-      {/* <div className="home_logo-inner">
-        {logos.map((logo, index) => (
-          <Image
-            key={`second-${index}`}
-            src={logo.src}
-            loading="lazy"
-            alt={logo.alt}
-            className="home_logo-image"
-            width={120}
-            height={60}
-          />
-        ))}
-      </div> */}
+      </Marquee> */}
+      
     </div>
   );
 };

@@ -27,9 +27,9 @@ export default function Contact() {
               <AboutHero />
               <LogoSection />
               <StorySection />
-              <ValueFunction />
-              <WhySection />
-        <TestimonialsSection />
+              {/* <ValueFunction /> */}
+              {/* <WhySection /> */}
+        {/* <TestimonialsSection /> */}
         <FAQSection />
         {/* <NewFAQSection /> */}
       </main>

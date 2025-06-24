@@ -96,9 +96,9 @@ const AboutSection = () => {
                     <p className="about-us_grid-child-subtext">
                       {about.testimonial_title}
                     </p>
-                    <a href="#" className="about-us_grid-child-link">
-                      Read Testimonials
-                    </a>
+                    <Link href="/contact" className="about-us_grid-child-link">
+                      Contact us
+                    </Link>
                   </motion.div>
                   <motion.div
                     data-w-id="1ff4d81f-0706-48c0-e636-48ee6329b544"
@@ -290,132 +290,7 @@ const AboutSection = () => {
                       ></p>
                     </motion.div>
                   ))}
-                  {/* <motion.div
-                    data-w-id="7d450072-5c84-03cd-4f31-f9966a48dbfd"
-                    // style="opacity: 0"
-                    className="about_block"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}
-                  >
-                    <img
-                      src="https://i.postimg.cc/P5bDPL6T/svgviewer-png-output-5.png"
-                      loading="lazy"
-                      alt=""
-                      className="about_block-icon"
-                    />
-                    <h3 className="about_block-heading">Corrosion-Free</h3>
-                    <p className="about_block-subtext">
-                      FRP rebars are completely corrosion-resistant, making them
-                      ideal for coastal and moisture-prone structures.
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    data-w-id="7d450072-5c84-03cd-4f31-f9966a48dbfd"
-                    // style="opacity: 0"
-                    className="about_block"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}
-                  >
-                    <img
-                      src="https://i.postimg.cc/P5bDPL6T/svgviewer-png-output-5.png"
-                      loading="lazy"
-                      alt=""
-                      className="about_block-icon"
-                    />
-                    <h3 className="about_block-heading">Corrosion-Free</h3>
-                    <p className="about_block-subtext">
-                      FRP rebars are completely corrosion-resistant, making them
-                      ideal for coastal and moisture-prone structures.
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    data-w-id="7d450072-5c84-03cd-4f31-f9966a48dbfd"
-                    // style="opacity: 0"
-                    className="about_block"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}
-                  >
-                    <img
-                      src="https://i.postimg.cc/P5bDPL6T/svgviewer-png-output-5.png"
-                      loading="lazy"
-                      alt=""
-                      className="about_block-icon"
-                    />
-                    <h3 className="about_block-heading">Corrosion-Free</h3>
-                    <p className="about_block-subtext">
-                      FRP rebars are completely corrosion-resistant, making them
-                      ideal for coastal and moisture-prone structures.
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    data-w-id="7d450072-5c84-03cd-4f31-f9966a48dbfd"
-                    // style="opacity: 0"
-                    className="about_block"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}
-                  >
-                    <img
-                      src="https://i.postimg.cc/P5bDPL6T/svgviewer-png-output-5.png"
-                      loading="lazy"
-                      alt=""
-                      className="about_block-icon"
-                    />
-                    <h3 className="about_block-heading">Corrosion-Free</h3>
-                    <p className="about_block-subtext">
-                      FRP rebars are completely corrosion-resistant, making them
-                      ideal for coastal and moisture-prone structures.
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    data-w-id="7d450072-5c84-03cd-4f31-f9966a48dbfd"
-                    // style="opacity: 0"
-                    className="about_block"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}
-                  >
-                    <img
-                      src="https://i.postimg.cc/P5bDPL6T/svgviewer-png-output-5.png"
-                      loading="lazy"
-                      alt=""
-                      className="about_block-icon"
-                    />
-                    <h3 className="about_block-heading">Corrosion-Free</h3>
-                    <p className="about_block-subtext">
-                      FRP rebars are completely corrosion-resistant, making them
-                      ideal for coastal and moisture-prone structures.
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    data-w-id="7d450072-5c84-03cd-4f31-f9966a48dbfd"
-                    // style="opacity: 0"
-                    className="about_block"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}
-                  >
-                    <img
-                      src="https://i.postimg.cc/P5bDPL6T/svgviewer-png-output-5.png"
-                      loading="lazy"
-                      alt=""
-                      className="about_block-icon"
-                    />
-                    <h3 className="about_block-heading">Corrosion-Free</h3>
-                    <p className="about_block-subtext">
-                      FRP rebars are completely corrosion-resistant, making them
-                      ideal for coastal and moisture-prone structures.
-                    </p>
-                  </motion.div> */}
+                  
                 </div>
               </div>
             </div>

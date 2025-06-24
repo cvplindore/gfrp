@@ -7446,3 +7446,17 @@ input {
     bottom: 3rem;
   }
 } */
+
+
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+
+/* Optional: hide Google Translate toolbar if it appears */
+.goog-te-gadget {
+  display: none !important;
+}

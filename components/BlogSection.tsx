@@ -159,7 +159,7 @@ const BlogSection = () => {
                       viewport={{ once: true, amount: 0.2 }}
                     >
                       <Link
-                        href={item.slug}
+                        href={`/blog/${item.slug}`}
                         className="blogs_linkblock w-inline-block"
                         onClick={doReverse}
                       >

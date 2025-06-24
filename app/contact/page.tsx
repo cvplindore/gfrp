@@ -20,7 +20,7 @@ export default function Contact() {
     <>
       <main className="main-wrapper sub-pages">
         <ContactHero />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FAQSection />
       </main>
       <Footer />

@@ -25,7 +25,7 @@ export default function Home() {
         <ProjectsSection />
         <ResourcesSection />
         <BlogSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FAQSection />
       </main>
       <Footer />

@@ -20,7 +20,7 @@ export default function Product() {
       <main className="main-wrapper sub-pages">
         <ProductHero />
         <ProductSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FAQSection />
       </main>
       <Footer />

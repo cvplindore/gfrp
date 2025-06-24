@@ -97,9 +97,9 @@ const ProductHero = () => {
                       </div>
                     </div>
                   </Link>
-                  <Link href="/contact" className="cta-link" onClick={doReverse}>
+                  {/* <Link href="/contact" className="cta-link" onClick={doReverse}>
                     get started
-                  </Link>
+                  </Link> */}
                 </div>
               </FadeInOnScroll>
             </div>

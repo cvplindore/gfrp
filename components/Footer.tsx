@@ -84,6 +84,7 @@ const Footer = () => {
                   data-wait="Please wait..."
                   className="footer_form-submit-btn w-button"
                   value="Subscribe"
+                  style={{pointerEvents: 'none'}}
                 />
               </form>
               {isSubmitted && (
@@ -106,7 +107,7 @@ const Footer = () => {
           <div className="footer_nav-list-wrap">
             <div className="footer_nav-col hehe"></div>
             <div className="footer_nav-col">
-              <h2 className="footer_nav-heading">Pages</h2>
+              <h2 className="footer_nav-heading">Company</h2>
               <ul role="list" className="footer_nav-list">
                 <li className="footer_nav-list-item">
                   <Link
@@ -168,7 +169,7 @@ const Footer = () => {
             <div className="footer_nav-col">
               <h2 className="footer_nav-heading">Legal</h2>
               <ul role="list" className="footer_nav-list">
-                <li className="footer_nav-list-item">
+                {/* <li className="footer_nav-list-item">
                   <Link
                     href="/blog"
                     className="footer_nav-link"
@@ -176,15 +177,16 @@ const Footer = () => {
                   >
                     Blog
                   </Link>
-                </li>
+                </li> */}
                 <li className="footer_nav-list-item">
-                  <Link
+                  <p className="footer_nav-link">coming</p>
+                  {/* <Link
                     href="/contact"
                     className="footer_nav-link"
                     onClick={doReverse}
                   >
                     Contact
-                  </Link>
+                  </Link> */}
                 </li>
               </ul>
             </div>

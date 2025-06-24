@@ -19,7 +19,7 @@ export default function Resources() {
       <main className="main-wrapper sub-pages">
         <ResourcesHero />
         <ResourcesSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FAQSection />
       </main>
       <Footer />

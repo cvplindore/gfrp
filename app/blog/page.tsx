@@ -22,7 +22,7 @@ export default function Blog() {
       <main className="main-wrapper sub-pages">
         <BlogHero />
         <BlogSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FAQSection />
       </main>
       <Footer />
