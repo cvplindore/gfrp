@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
@@ -10,6 +10,7 @@ import "./FAQSection.css"
 import { motion } from "framer-motion";
 import FadeInOnScroll from "./animation/FadeInOnScroll";
 import { useLoader } from "./LoaderContext";
+import axios from "axios";
 
 interface FAQItem {
   question: string;
@@ -124,13 +125,26 @@ const FAQSection = () => {
   //   setOpenFAQ(openFAQ === index ? null : index);
   // };
 
+
+  // the correctd one
+
+  // const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  
+  //   const toggleFAQ = (index: number) => {
+  //     setOpenFAQ(openFAQ === index ? null : index);
+  //   };
+  
+  // const { setHideLoader } = useLoader();
+
+
+  const [faqs, setFaqs] = useState([]); // ✅ state to hold FAQ list
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  
-    const toggleFAQ = (index: number) => {
-      setOpenFAQ(openFAQ === index ? null : index);
-    };
-  
   const { setHideLoader } = useLoader();
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
   
     function doReverse(e) {
       // e.preventDefault();
@@ -140,6 +154,18 @@ const FAQSection = () => {
         setHideLoader(true);
       }, 4000);
     }
+  
+  
+    useEffect(() => {
+      axios
+        .get("https://gfrp-india.onrender.com/api/faq_section_list/") // your Django endpoint
+        .then((response) => {
+          setFaqs(response.data); // it's a single object, not an array
+        })
+        .catch((error) => {
+          console.error("Error fetching hero section:", error);
+        });
+    }, []);
 
   return (
     <section data-wf--faqs-section--variant="base" className="section_faqs">

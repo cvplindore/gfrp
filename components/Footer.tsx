@@ -4,16 +4,39 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLoader } from "./LoaderContext";
+import axios from "axios";
 
 const Footer = () => {
+  // const [email, setEmail] = useState("");
+  // const [isSubmitted, setIsSubmitted] = useState(false);
+
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // Handle form submission here
+  //   setIsSubmitted(true);
+  //   setTimeout(() => setIsSubmitted(false), 3000);
+  // };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setIsSubmitted(false);
+    setError("");
+
+    try {
+      const response = await axios.post(
+        "https://gfrp-india.onrender.com/api/newsletter_form_view/", // Replace with your actual endpoint
+        { email }
+      );
+      setIsSubmitted(true);
+      setEmail("");
+    } catch (err) {
+      console.error("Error submitting email:", err);
+      setError("Oops! Something went wrong. Please try again.");
+    }
   };
 
   const { setHideLoader } = useLoader();
@@ -84,7 +107,12 @@ const Footer = () => {
                   data-wait="Please wait..."
                   className="footer_form-submit-btn w-button"
                   value="Subscribe"
-                  style={{pointerEvents: 'none'}}
+                  // style={{pointerEvents: 'none'}}
+                  disabled={!email}
+                  style={{
+                    pointerEvents: !email ? "none" : "auto",
+                    opacity: !email ? 0.5 : 1,
+                  }}
                 />
               </form>
               {isSubmitted && (

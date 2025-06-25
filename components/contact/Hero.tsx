@@ -1,10 +1,48 @@
+"use client";
+
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 
 export default function ContactHero() {
-    const [contactPage, setContactPage] = useState(null);
+  const [contactPage, setContactPage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccessMsg("");
+    setErrorMsg("");
+
+    const formData = {
+      first_name: (e.currentTarget["First-name"] as HTMLInputElement).value,
+      last_name: (e.currentTarget["Last-name"] as HTMLInputElement).value,
+      email_address: (e.currentTarget["Email"] as HTMLInputElement).value,
+      phone: (e.currentTarget["Phone"] as HTMLInputElement).value,
+      machine: (e.currentTarget["Service"] as HTMLSelectElement).value,
+      message: (e.currentTarget["Message"] as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await axios.post(
+        "https://gfrp-india.onrender.com/api/contact_form_view/",
+        formData
+      );
+      setSuccessMsg("Thank you! Your submission has been received!");
+      // e.currentTarget.reset();
+      formRef.current?.reset();
+    } catch (error: any) {
+      console.error("Error submitting form:", error);
+      setErrorMsg("Oops! Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
     useEffect(() => {
       axios
@@ -17,13 +55,14 @@ export default function ContactHero() {
         });
     }, []);
 
-    if (!contactPage) return;
+  if (!contactPage) return;
 
 
     return (
-        <section className="section_hero projects-page contact-page"
-            style={{backgroundImage: `url(${contactPage.image})`}}
-        >
+      <section
+        className="section_hero projects-page contact-page"
+        style={{ backgroundImage: `url(${contactPage.image})` }}
+      >
         <div className="padding-global padding-0">
           <div className="container-large">
             <div className="hero_wrapper projects-page">
@@ -112,6 +151,8 @@ export default function ContactHero() {
                     className="contact-form"
                     data-wf-page-id="67ebecb112a8e5bd7f4bd393"
                     data-wf-element-id="d499c54f-7670-6225-41dc-d874069fdc47"
+                    onSubmit={handleSubmit}
+                    ref={formRef}
                   >
                     <div className="contact-form_row">
                       <div className="contact_form_field-wrapper">
@@ -130,7 +171,7 @@ export default function ContactHero() {
                       </div>
                       <div className="contact_form_field-wrapper">
                         <label htmlFor="Last-name" className="cc-form_label">
-                          Form Label
+                          Last name
                         </label>
                         <input
                           className="cc-form_field w-input"
@@ -175,7 +216,7 @@ export default function ContactHero() {
                     </div>
                     <div className="contact_form_field-wrapper">
                       <label htmlFor="Service-2" className="cc-form_label">
-                        Service
+                        Machine
                       </label>
                       <select
                         id="Service-2"
@@ -186,15 +227,9 @@ export default function ContactHero() {
                         style={{ borderColor: "#e7e7e7" }}
                       >
                         <option value="">Select</option>
-                        <option value="Solar system installation">
-                          Solar system installation
-                        </option>
-                        <option value="Battery storage solutions">
-                          Battery storage solutions
-                        </option>
-                        <option value="EV charger installation">
-                          EV charger installation
-                        </option>
+                        <option value="GFRP machine">GFRP machine</option>
+                        <option value="some other">some other</option>
+                        <option value="new machine">new machine</option>
                       </select>
                     </div>
                     <div className="contact_form_field-wrapper">
@@ -215,11 +250,20 @@ export default function ContactHero() {
                       type="submit"
                       data-wait="Please wait..."
                       className="contact-form_submit-btn w-button"
-                      value="Submit"
-                      style={{ backgroundColor: "#ff6b35", pointerEvents: 'none', cursor: 'not-allowed' }}
+                      value={loading ? "Submitting..." : "Submit"}
+                      disabled={loading}
+                      // style={{
+                      //   backgroundColor: "#ff6b35",
+                      //   pointerEvents: "none",
+                      //   cursor: "not-allowed",
+                      // }}
+                      style={{
+                        backgroundColor: loading ? "#ccc" : "#ff6b35",
+                        cursor: loading ? "not-allowed" : "pointer",
+                      }}
                     />
                   </form>
-                  <div className="contact_success-message w-form-done">
+                  {/* <div className="contact_success-message w-form-done">
                     <div className="form_success-text">
                       Thank you! Your submission has been received!
                     </div>
@@ -228,7 +272,17 @@ export default function ContactHero() {
                     <div className="foote_error-text">
                       Oops! Something went wrong while submitting the form.
                     </div>
-                  </div>
+                  </div> */}
+                  {successMsg && (
+                    <div className="contact_success-message w-form-done">
+                      <div className="form_success-text">{successMsg}</div>
+                    </div>
+                  )}
+                  {errorMsg && (
+                    <div className="contact_error-block-message w-form-fail">
+                      <div className="footer_error-text">{errorMsg}</div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

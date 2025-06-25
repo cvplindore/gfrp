@@ -2522,7 +2522,7 @@ figcaption {
 .cc-form_field {
   color: var(--black);
   letter-spacing: -0.03em;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   background-color: #0000;
   border: 1px solid #ececec;
   border-radius: 0.5rem;
