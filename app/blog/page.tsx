@@ -20,7 +20,7 @@ export default function Blog() {
   return (
     <>
       <main className="main-wrapper sub-pages">
-        <BlogHero />
+        {/* <BlogHero /> */}
         <BlogSection />
         {/* <TestimonialsSection /> */}
         <FAQSection />

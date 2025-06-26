@@ -24,8 +24,8 @@ export default function Contact() {
   return (
     <>
       <main className="main-wrapper sub-pages">
-              <AboutHero />
-              <LogoSection />
+              {/* <AboutHero /> */}
+              {/* <LogoSection /> */}
               <StorySection />
               {/* <ValueFunction /> */}
               {/* <WhySection /> */}

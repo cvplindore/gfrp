@@ -36,7 +36,7 @@ export default function BlogSection() {
 
   return (
     <section className="section_blog uhm">
-      <div className="padding-global padding-0">
+      <div className="padding-global padding-0" style={{ marginTop: "100px" }}>
         <div className="container-large">
           <div className="blog_wrapper">
             <div className="blog_featured-wrapper">

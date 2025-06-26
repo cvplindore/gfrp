@@ -23,7 +23,10 @@ export default function StorySection() {
 
     return (
       <section className="section_story">
-        <div className="padding-global padding-0">
+        <div
+          className="padding-global padding-0"
+          style={{ marginTop: "100px" }}
+        >
           <div className="container-large">
             <div className="story_wrapper">
               <FadeInOnScroll>
@@ -36,10 +39,10 @@ export default function StorySection() {
                     src={aboutStory.image}
                     loading="lazy"
                     sizes="(max-width: 581px) 100vw, 581px"
-                  //   srcSet={`
-                  //   ${aboutStory.image} 500w,
-                  //   ${aboutStory.image} 540w
-                  // `}
+                    //   srcSet={`
+                    //   ${aboutStory.image} 500w,
+                    //   ${aboutStory.image} 540w
+                    // `}
                     // srcSet="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ebc9cd565a25f4f309d278_image%20(1)-p-500.webp 500w, https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ebc9cd565a25f4f309d278_image%20(1).webp 581w"
                     alt="A group of friends standing and watching the sun set"
                     className="story_left-wrapper-image"
@@ -75,15 +78,15 @@ export default function StorySection() {
                   integrity and longevity. With GFRP, we empower builders,
                   architects, and engineers to reduce maintenance costs */}
                   </p>
-                  <img
+                  {/* <img
                     src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67ebcab0a4078f56000563cd_image%2027.svg"
                     loading="lazy"
                     //   style="opacity:0"
                     data-w-id="9b1affcd-db5b-b5de-534c-a2390c588f12"
                     alt="Jakob Stanton Signature"
                     className="story_signature-image"
-                  />
-                  <div className="testi_author-wrap">
+                  /> */}
+                  {/* <div className="testi_author-wrap">
                     <div className="testi_author-image-wrap">
                       <img
                         src="https://cdn.prod.website-files.com/67ea6645891c299018425dd4/67eb30fb6430868c6d4e7c02_services%20(1).webp"
@@ -98,7 +101,7 @@ export default function StorySection() {
                         CEO &amp;Founder
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </FadeInOnScroll>
             </div>

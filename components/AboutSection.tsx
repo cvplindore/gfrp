@@ -242,7 +242,7 @@ const AboutSection = () => {
                 // style="opacity: 0"
                 className="about-us_content-grid"
               >
-                <motion.div
+                {/* <motion.div
                   className="about-us_left-container"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -260,7 +260,7 @@ const AboutSection = () => {
                     alt="an engineer installing solar panels on a roof"
                     className="about-us_content-image"
                   />
-                </motion.div>
+                </motion.div> */}
                 <div className="about_content-grid">
                   {how.sub_sections.map((step, index) => (
                     <motion.div

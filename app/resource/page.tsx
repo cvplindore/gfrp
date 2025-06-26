@@ -17,7 +17,7 @@ export default function Resources() {
   return (
     <>
       <main className="main-wrapper sub-pages">
-        <ResourcesHero />
+        {/* <ResourcesHero /> */}
         <ResourcesSection />
         {/* <TestimonialsSection /> */}
         <FAQSection />

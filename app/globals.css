@@ -2913,7 +2913,7 @@ figcaption {
   transition: color 0.45s;
 }
 .footer_nav-link:hover {
-  color: var(--secondary-color);
+  /* color: var(--secondary-color); */
 }
 .footer_middle-wrapper {
   border-bottom: 1px solid var(--stroke-dark);

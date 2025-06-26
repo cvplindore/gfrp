@@ -258,7 +258,7 @@ export default function ProductSection() {
     //   </div>
     // </section>
     <section className="section_projects">
-      <div className="padding-global padding-0">
+      <div className="padding-global padding-0" style={{ marginTop: "100px" }}>
         <div className="container-large">
           <div className="projects_wrapper">
             <div className="projects_top-container">
@@ -269,7 +269,7 @@ export default function ProductSection() {
                       className="about-us_heading-dot"
                       style={{ backgroundColor: "#ff6b35" }}
                     ></div>
-                    <div className="about-us_heading">Products</div>
+                    <div className="about-us_heading">Machine</div>
                   </div>
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={0.2}>
@@ -404,24 +404,24 @@ export default function ProductSection() {
                             data-infinite="true"
                           >
                             <div className="project_slider-mask w-slider-mask">
-                              {product.image?.map((img, inD) => (
-                                <div
-                                  key={inD}
-                                  className="project_slider-slide w-slide"
-                                >
-                                  <div className="project_slider-image-wrapper">
-                                    <Image
-                                      src={img.image}
-                                      loading="lazy"
-                                      alt=""
-                                      sizes="100vw"
-                                      className="project_slider-image"
-                                      width={560}
-                                      height={400}
-                                    />
-                                  </div>
+                              {/* {product.image?.map((img, inD) => ( */}
+                              <div
+                                // key={inD}
+                                className="project_slider-slide w-slide"
+                              >
+                                <div className="project_slider-image-wrapper">
+                                  <Image
+                                    src={product.image}
+                                    loading="lazy"
+                                    alt=""
+                                    sizes="100vw"
+                                    className="project_slider-image"
+                                    width={560}
+                                    height={400}
+                                  />
                                 </div>
-                              ))}
+                              </div>
+                              {/* // ))} */}
                               {/* {sliderImages.map((img, index) => (
                                 <div
                                   key={index}

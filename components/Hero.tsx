@@ -138,7 +138,7 @@ const Hero = () => {
       // }}
       style={{
         backgroundImage: `linear-gradient(#0000, #000), url(${hero.image})`,
-        objectFit: 'cover'
+        objectFit: "cover",
       }}
       //   style={{
       //     backgroundImage: `linear-gradient(#0000, #000), url(${hero.image})`,
@@ -154,7 +154,7 @@ const Hero = () => {
                   // className="about-us_heading-dot"
                   // style="background-color: #ff6b35 !important"
                   ></div>
-                  <div className="about-us_heading">3 MONTHS ROI</div>
+                  <div className="about-us_heading">{hero.small_title}</div>
                 </div>
               </FadeInOnScroll>
               <FadeInOnScroll delay={0.2}>

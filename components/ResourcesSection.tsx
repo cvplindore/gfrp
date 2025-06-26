@@ -90,7 +90,7 @@ const ResourcesSection = () => {
                   </p>
                 </div>
               ))} */}
-              {resource.technical_resources.map((res, index) => (
+              {resource.technical_resources.slice(0, 6).map((res, index) => (
                 <motion.div
                   key={index}
                   data-w-id="4a36a7ce-9ad2-b919-d7ad-e058ddd21af3"

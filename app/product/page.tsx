@@ -18,8 +18,10 @@ export default function Product() {
   return (
     <>
       <main className="main-wrapper sub-pages">
-        <ProductHero />
-        <ProductSection />
+        {/* <ProductHero /> */}
+        
+          <ProductSection />
+        
         {/* <TestimonialsSection /> */}
         <FAQSection />
       </main>

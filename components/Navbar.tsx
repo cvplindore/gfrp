@@ -91,7 +91,7 @@ const Navbar = () => {
             className="navbar_links-item cc-button-text"
             onClick={doReverse}
           >
-            Products
+            Machine
           </Link>
           <Link
             href="/blog"

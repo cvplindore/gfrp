@@ -24,7 +24,7 @@ export default function ContactHero() {
       last_name: (e.currentTarget["Last-name"] as HTMLInputElement).value,
       email_address: (e.currentTarget["Email"] as HTMLInputElement).value,
       phone: (e.currentTarget["Phone"] as HTMLInputElement).value,
-      machine: (e.currentTarget["Service"] as HTMLSelectElement).value,
+      city: (e.currentTarget["City"] as HTMLInputElement).value,
       message: (e.currentTarget["Message"] as HTMLTextAreaElement).value,
     };
 
@@ -216,9 +216,18 @@ export default function ContactHero() {
                     </div>
                     <div className="contact_form_field-wrapper">
                       <label htmlFor="Service-2" className="cc-form_label">
-                        Machine
+                        City
                       </label>
-                      <select
+                      <input
+                        className="cc-form_field w-input"
+                        name="City"          
+                        data-name="City"
+                        placeholder="Mumbai"
+                        type="text"
+                        id="City"
+                        required
+                      />
+                      {/* <select
                         id="Service-2"
                         name="Service"
                         data-name="Service"
@@ -230,7 +239,7 @@ export default function ContactHero() {
                         <option value="GFRP machine">GFRP machine</option>
                         <option value="some other">some other</option>
                         <option value="new machine">new machine</option>
-                      </select>
+                      </select> */}
                     </div>
                     <div className="contact_form_field-wrapper">
                       <label htmlFor="Message" className="cc-form_label">

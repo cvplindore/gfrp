@@ -24,7 +24,7 @@ const ResourcesSection = () => {
       className="sections_whys"
       style={{ background: "none !important" }}
     >
-      <div className="padding-global padding-0">
+      <div className="padding-global padding-0" style={{ marginTop: "100px" }}>
         <div className="container-large">
           <div className="why_wrapper">
             <div className="why_top-container home-page">
