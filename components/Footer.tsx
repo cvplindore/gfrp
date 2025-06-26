@@ -194,9 +194,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div> */}
-            <div className="footer_nav-col">
+            <div className="footer_nav-col hehe">
               {/* <h2 className="footer_nav-heading">Legal</h2> */}
-              
             </div>
             <div className="footer_nav-col">
               <h2 className="footer_nav-heading">Company</h2>
