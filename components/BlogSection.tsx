@@ -144,7 +144,7 @@ const BlogSection = () => {
                       </Link>
                     </div>
                   ))} */}
-                  {blog.map((item, index) => (
+                  {blog.slice(0, 3).map((item, index) => (
                     <motion.div
                       key={index}
                       role="listitem"
