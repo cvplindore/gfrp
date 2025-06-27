@@ -1,5 +1,5 @@
 "use client";
-  
+
 import LoaderWrapper from "@/components/LoaderWrapper";
 import { LoaderProvider } from "../components/LoaderContext";
 import Script from "next/script";
@@ -7,8 +7,6 @@ import Script from "next/script";
 import Head from "next/head";
 
 import "./globals.css";
-import TranslateButton from "@/components/TranslateButton";
-
 
 export default function RootLayout({
   children,
@@ -27,14 +25,30 @@ export default function RootLayout({
           }}
         />
 
+        {/* ✅ gtag.js - Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J7XD0NNPHH"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-J7XD0NNPHH');
+            `,
+          }}
+        />
+
         {/* ✅ LeadFeeder */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ var fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; cs.async=1; fs.parentNode.insertBefore(cs,fs); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('3P1w24dmLWJamY5n');`,
           }}
         />
-
-        
       </Head>
 
       <body className="body">
