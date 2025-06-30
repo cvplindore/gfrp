@@ -103,7 +103,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>My Website</title>
+        <title>GFRP-INDIA</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* ✅ Google Tag Manager */}
