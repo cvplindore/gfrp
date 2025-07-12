@@ -290,7 +290,7 @@ const ProjectsSection = () => {
                             </div>
                             <div className="projects_result-wrap">
                               <h3 className="project_result-heading cc-caption">
-                                Application
+                                Features
                               </h3>
                               <div className="projects_result-grid">
                                 {product.application?.map((app, indexS) => (
